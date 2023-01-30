@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;700&display=swap');
+@font-face {
+    font-family: 'Chosunilbo_myungjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* font */
+    --korFont: 'Chosunilbo_myungjo';
+    --mainFont: 'Rajdhani', sans-serif;
+}
+
+html {
+    cursor: url(./images/cursor.png)2 2 , pointer;
+}
+
+body {
+    font-family: var(--korFont);
+    background: #FFFFFF;
+}
+
+ul , li {
+    list-style: none;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    margin: 0 12px;
+    display: flex;
+    flex-direction: column;
+    max-width: 968px;
+    width: 100%;
+    gap: 10px;
+    overflow: hidden;
+    background: #3d3c3b;
+    padding: 0.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgba(255,255,255, 0.82);
+}
+
+section {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tool {
+    position: relative;
+    padding: 12px 22px 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    /* justify-content: space-between; */
+    align-items: center;
+    overflow: hidden;
+}
+
+.container::after {
+    content: "< Drawing App />";
+    position: absolute;
+    right: 50%;
+    top: 40%;
+    font-size: 2rem;
+    line-height: 1.35rem;
+    letter-spacing: 1.2px;
+    transform: translate(50%, -40%);
+    color: #FFFFFF;
+    z-index: 20;
+    transition: 0.9s all linear;
+}
+
+.container::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #212121;
+    background-image: url(../assets/images/mackbook.png);
+    background-position: center;
+    background-size: 100% 100%;
+    border-radius: 12px;
+    z-index: 10;
+    transition: 0.5s all linear;
+}
+
+.container:hover::before ,
+.container:focus::before{
+    left: -120%;
+    transform: rotateZ(-30deg);
+    transition: 0.5s all linear;
+    transition-delay: 0.25s;
+}
+
+.container:hover::after,
+.container:focus::after {
+    right: -120%;
+    transform: rotateZ(180deg);
+    background: #212222;
+    transition: 0.9s all linear;
+    transition-delay: 0.15s;
+}
+
+.tool .title {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.tool .row {
+    display: flex;
+    border-radius: 12px;
+    gap: 10px;
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+}
+
+.options .op{
+    margin-bottom: 4px;
+}
+
+.options .op input[type='range'] {
+    margin-top: 6px;
+}
+
+.op {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 12px;    
+    width: max-content;
+    padding: 0.3rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.op span:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.op :where(span) {
+    padding-left: 2.5px;
+}
+
+.op .check_color {
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+}
+
+.op .check_color:checked ~ label {
+    color: #212222;
+}
+
+.op.erasor {
+    align-items: center;
+}
+
+.op .erasor_slide , 
+.op .brush_size{
+    width: 100%;
+    height: 5px;
+    margin-top: 12px;
+}
+
+.colors {
+    flex-flow: column;
+    width: 20%;
+}
+
+.tool .row.colors {
+    gap: 20px;
+}
+
+.colors .title {
+    justify-content: center;
+}
+
+.colors .ops {
+    display: flex;
+    justify-content: space-between;
+}
+
+.colors .op {
+    position: relative;
+    width: 17px;
+    height: 17px;
+    background: red;
+    border-radius: 50%;
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+
+.colors .select_color {
+    width: 100%;
+    height: 25px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, purple);
+}
+
+.colors .op.select_color:hover::before {
+    height: 50%;
+    width: 90%;
+    border: 1px solid #ccc;
+}
+
+.colors .op:hover::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: inherit;
+    background: inherit;
+    border: 1px solid #FFFFFF;
+}
+
+.colors .op:nth-child(1) {
+    background-color: rgb(245, 237, 237);
+    border: 1px solid #ccc;
+}
+.colors .op:nth-child(2) {
+    background-color: #000;
+}
+.colors .op:nth-child(3) {
+    background-color: rgb(165, 89, 89);
+}
+.colors .op:nth-child(4) {
+    background-color: rgb(12, 180, 12);
+}
+.colors .op:nth-child(5) {
+    background-color: rgb(226, 142, 226);
+}
+
+.tool .buttons {
+    flex-flow: column;
+}
+
+.tool .buttons button {
+    width: 100%;
+    background: transparent;
+    color: #212222;
+    border: none;
+    outline: none;
+    padding: 18px 24px;
+    margin-bottom: 9px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: var(--mainFont);
+}
+
+.tool .buttons .clear_btn {
+    border: 1px solid #ccc;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.tool .buttons .save_paint {
+    border: 1px solid skyblue;
+    background: rgba(255,255,255, 0.82);
+    color: #000;
+}
+
+.op .color-pick {
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Pick 선택시 */
+.active {
+    background: rgba(0, 0, 0, 0.045);
+    color: rgb(73, 143, 170);
+    transition: 0.2s all linear;
+}
+
+/* color Pick */
+/* .slected {
+
+} */
+
+/* draw seciont */
+.draw {
+    width: 100%;
+    height: 450px;
+}
+
+.draw canvas {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .tool {
+        padding: 6px 8px 6px;
+        display: grid;
+        grid-template-columns: 40% 25% 30%;
+        place-items: center;
+        gap: 0.35rem;
+    }
+    .tool .row {
+        gap: 4px;
+        width: 90%;
+    }
+    .tool .row.left .op{
+        width: 100%;
+    }
+    .colors {
+        width: 100%;
+    }
+    .tool .row.colors {
+        height: 100%;;
+        justify-content: space-evenly;
+    }
+    .op {
+        gap: 0.2rem;
+        font-size: 0.85rem;
+    }
+    .op.paint_tool , 
+    .op.picker {
+        flex-flow: column;
+        margin-bottom: 6px;
+        padding: 0.2rem 0.12rem;
+        text-align: center;
+    }
+    .tool .buttons .save_paint ,
+    .tool .buttons .clear_btn {
+        padding: 14px 18px;
+        font-size: 0.8rem;
+        letter-spacing: 0.25px;
+    }
+    .draw {
+        height: 350px;
+    }
+}
