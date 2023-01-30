@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;700&display=swap');
+
 @font-face {
     font-family: 'Chosunilbo_myungjo';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
+}
 
 * {
     margin: 0;
@@ -19,7 +20,7 @@
 }
 
 html {
-    cursor: url(./images/cursor.png)2 2 , pointer;
+    cursor: url(./images/cursor.png)2 2, pointer;
 }
 
 body {
@@ -27,7 +28,8 @@ body {
     background: #FFFFFF;
 }
 
-ul , li {
+ul,
+li {
     list-style: none;
 }
 
@@ -50,7 +52,7 @@ ul , li {
     background: #3d3c3b;
     padding: 0.5rem;
     border-radius: 12px;
-    box-shadow: 0 0 6px rgba(255,255,255, 0.82);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.82);
 }
 
 section {
@@ -100,8 +102,8 @@ section {
     transition: 0.5s all linear;
 }
 
-.container:hover::before ,
-.container:focus::before{
+.container:hover::before,
+.container:focus::before {
     left: -120%;
     transform: rotateZ(-30deg);
     transition: 0.5s all linear;
@@ -133,7 +135,7 @@ section {
     justify-content: center;
 }
 
-.options .op{
+.options .op {
     margin-bottom: 4px;
 }
 
@@ -145,7 +147,7 @@ section {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    margin-bottom: 12px;    
+    margin-bottom: 12px;
     width: max-content;
     padding: 0.3rem;
     border-radius: 6px;
@@ -168,7 +170,7 @@ section {
     width: 14px;
 }
 
-.op .check_color:checked ~ label {
+.op .check_color:checked~label {
     color: #212222;
 }
 
@@ -176,8 +178,8 @@ section {
     align-items: center;
 }
 
-.op .erasor_slide , 
-.op .brush_size{
+.op .erasor_slide,
+.op .brush_size {
     width: 100%;
     height: 5px;
     margin-top: 12px;
@@ -244,15 +246,19 @@ section {
     background-color: rgb(245, 237, 237);
     border: 1px solid #ccc;
 }
+
 .colors .op:nth-child(2) {
     background-color: #000;
 }
+
 .colors .op:nth-child(3) {
     background-color: rgb(165, 89, 89);
 }
+
 .colors .op:nth-child(4) {
     background-color: rgb(12, 180, 12);
 }
+
 .colors .op:nth-child(5) {
     background-color: rgb(226, 142, 226);
 }
@@ -283,7 +289,7 @@ section {
 
 .tool .buttons .save_paint {
     border: 1px solid skyblue;
-    background: rgba(255,255,255, 0.82);
+    background: rgba(255, 255, 255, 0.82);
     color: #000;
 }
 
@@ -323,38 +329,67 @@ section {
         place-items: center;
         gap: 0.35rem;
     }
+
     .tool .row {
         gap: 4px;
         width: 90%;
     }
-    .tool .row.left .op{
+
+    .tool .row.left .op {
         width: 100%;
     }
+
     .colors {
         width: 100%;
     }
+
     .tool .row.colors {
-        height: 100%;;
+        height: 100%;
+        ;
         justify-content: space-evenly;
     }
+
     .op {
         gap: 0.2rem;
         font-size: 0.85rem;
     }
-    .op.paint_tool , 
+
+    .op.paint_tool,
     .op.picker {
         flex-flow: column;
         margin-bottom: 6px;
         padding: 0.2rem 0.12rem;
         text-align: center;
     }
-    .tool .buttons .save_paint ,
+
+    .tool .buttons .save_paint,
     .tool .buttons .clear_btn {
         padding: 14px 18px;
         font-size: 0.8rem;
         letter-spacing: 0.25px;
     }
+
     .draw {
         height: 350px;
+    }
+}
+
+@media(hover: hover) and (pointer: fine) {
+
+    .container:hover::before,
+    .container:focus::before {
+        left: -120%;
+        transform: rotateZ(-30deg);
+        transition: 0.5s all linear;
+        transition-delay: 0.25s;
+    }
+
+    .container:hover::after,
+    .container:focus::after {
+        right: -120%;
+        transform: rotateZ(180deg);
+        background: #212222;
+        transition: 0.9s all linear;
+        transition-delay: 0.15s;
     }
 }
